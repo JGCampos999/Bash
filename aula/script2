@@ -49,15 +49,15 @@ function Pot {
 	read base
 	echo "Insira o expoente"
 	read expo
-	let valf=base^expo
+	let valf=base**expo
 	echo "A potenciação resulta em $valf"
 }
 
 function Raiz {
 	radi=0
-	echo "Insira o radicanto"
+	echo "Insira o radicando"
 	read radi
-	let valf=sqrt $radi
+	let valf=radi**0
 	echo "A raiz quadrada resulta em $valf"
 }
 
@@ -73,20 +73,27 @@ do
 	echo "9 - Sair"
 	read Menu
 	if [ $Menu -eq 1 ];then
+		clear
 		Adi
 	elif [ $Menu == 2 ];then
+		clear
 		Sub
 	elif [ $Menu == 3 ];then
+		clear
 		Mul
 	elif [ $Menu == 4 ];then
+		clear	
 		Div
 	elif [ $Menu == 5 ];then
+		clear	
 		Pot
 	elif [ $Menu == 6 ];then
+		clear	
 		Raiz
 	elif [ $Menu == 9 ];then
 		echo "Encerrado"
 	else
 		echo "Opção Inválida"
+		clear	
 	fi
 done
