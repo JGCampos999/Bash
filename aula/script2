@@ -1,0 +1,92 @@
+#!/bin/bash
+function Adi {
+	val1=0
+	val2=0
+	echo "Insira o primeiro valor"
+	read val1
+	echo "Insira o segundo valor"
+	read val2
+	let valf=val1+val2
+	echo "A adição resulta em $valf"
+}
+function Sub {
+	val1=0
+	val2=0
+	echo "Insira o primeiro valor"
+	read val1
+	echo "Insira o segundo valor"
+	read val2
+	let valf=val1-val2
+	echo "A subtração resulta em $valf"
+}
+function Mul {
+	val1=0
+	val2=0
+	echo "Insira o primeiro valor"
+	read val1
+	echo "Insira o segundo valor"
+	read val2
+	let valf=val1*val2
+	echo "A multiplicação resulta em $valf"
+}
+function Div {
+	val1=0
+	val2=0
+	echo "Insira o primeiro valor"
+	read val1
+	while $val2 == 0
+	do
+		echo "Insira o segundo valor"
+		read val2
+	done
+	let valf=val1/val2
+	echo "A divisão resulta em $valf"
+}
+function Pot {
+	base=0
+	expo=0
+	echo "Insira a base"
+	read base
+	echo "Insira o expoente"
+	read expo
+	let valf=base^expo
+	echo "A potenciação resulta em $valf"
+}
+
+function Raiz {
+	radi=0
+	echo "Insira o radicanto"
+	read radi
+	let valf=sqrt $radi
+	echo "A raiz quadrada resulta em $valf"
+}
+
+Menu=0
+while [ $Menu -ne 9 ]
+do
+	echo "1 - Adição"
+	echo "2 - Subtração"
+	echo "3 - Multiplicação"
+	echo "4 - Divisão"
+	echo "5 - Potenciação"
+	echo "6 - Radiciação"
+	echo "9 - Sair"
+	read Menu
+	if [ $Menu -eq 1 ];then
+		Adi
+	elif [ $Menu == 2 ];then
+		Sub
+	elif [ $Menu == 3 ];then
+		Mul
+	elif [ $Menu == 4 ];then
+		Div
+	elif [ $Menu == 5 ];then
+		Pot
+	elif [ $Menu == 6 ];then
+		Raiz
+	elif [ $Menu == 9 ];then
+		echo "Encerrado"
+	else
+		echo "Opção Inválida"
+	fi
+done

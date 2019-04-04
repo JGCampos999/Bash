@@ -1,0 +1,34 @@
+#!/bin/bash
+echo "Verificando..."
+ipHost="10.0.2."
+if [ -f Ip.txt ];then
+	rm Ip.txt
+	rm Ping.txt
+fi
+ifconfig >> Ip.txt
+filename="Ip.txt"
+verify=broadcast
+verifyLine=" "
+while read line;
+do
+	if [[ $line =~ $verify ]];then
+		verifyLine=$line
+	fi
+done < $filename
+for i in {1..20}
+do
+	concat="$ipHost$i"
+	if [[ $verifyLine =~ "$concat " ]];then
+		echo "Seu Ip é $concat"
+		echo "Recebendo ping..."
+		ping -c 5 "$concat" >> Ping.txt
+	fi
+done
+filename="Ping.txt"
+while read line;
+do
+	if [[ $line =~ "icmp" ]];then
+		echo "$line"
+	fi
+done < $filename
+echo "Concluído"
