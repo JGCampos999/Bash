@@ -18,6 +18,8 @@ echo %dataA%
 
 if anoA lss anoI goto erro
 
+if mesA lss mesI(if anoA leq anoI goto erro)
+
 if diaA lss diaI(if mesA leq mesI(if anoA leq anoI goto erro))
 
 if dataI neq dataA goto loop
